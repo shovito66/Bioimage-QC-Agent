@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "bioimage-qc-agent"
+version = "0.1.0"
+description = "Microscopy nuclei segmentation QC pipeline with rule-based agentic parameter correction"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-image",
+    "pandas",
+    "matplotlib",
+    "tifffile",
+    "pillow",
+    "tqdm",
+    "streamlit",
+    "requests",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+llm = ["ollama", "google-generativeai"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

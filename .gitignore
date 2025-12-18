@@ -1,0 +1,39 @@
+# Dataset - raw Kaggle download (811 MB)
+data/raw/
+
+# Processed dataset images/masks (binary, reproducible via data_utils.py)
+data/bbbc038_subset/
+
+# Pipeline output binary files
+results/masks/
+results/overlays/
+results/*.pkl
+
+# Model checkpoints (large binaries — download separately)
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Claude session data
+.claude/
+
+# Environment
+.env
+*.env
+
+# OS
+.DS_Store
