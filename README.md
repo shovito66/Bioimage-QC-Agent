@@ -7,6 +7,39 @@ Bioimage QC Agent is a microscopy image segmentation and quality-control pipelin
 
 Bioimage analysis workflows require reliable segmentation, benchmarking, quality control, annotation comparison, and reproducible reporting. This project demonstrates a practical observe-decide-act-evaluate loop for segmentation QC.
 
+
+## Interactive Web App
+![Demo](docs/images/dashboard.gif)
+A live demo is available via Streamlit Cloud. Click the badge below to open it in your browser — no installation required.
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioimage-qc.streamlit.app/)
+Dashboard link:
+```text
+https://bioimage-qc.streamlit.app/
+```
+The app lets you:
+
+- **Upload** any PNG/TIF fluorescence or brightfield image (or pick from the built-in sample gallery)
+- **Tune** watershed parameters interactively — smoothing σ, min object size, peak distance
+- **See** the raw image, colour-coded segmentation, overlay, and nucleus size histogram side by side
+- **Inspect** rule-based QC flags (blur, contrast, tiny-object fraction)
+- **Watch** the agent detect over/under-segmentation and automatically re-run with corrected parameters
+- **Download** the overlay PNG, predicted mask, and a metrics CSV
+
+To run the app locally:
+
+```bash
+streamlit run streamlit_app.py
+```
+
+For a minimal install (no Cellpose / SAM / torch needed):
+
+```bash
+pip install -r requirements-cloud.txt
+streamlit run streamlit_app.py
+```
+
+
 ## Dataset
 
 Designed for the **BBBC038 / 2018 Data Science Bowl** nuclei segmentation dataset (Kaggle). Download and convert ~50 images with:
@@ -237,34 +270,6 @@ python src/run_pipeline.py ... --llm-provider ollama
 # Gemini
 export GEMINI_API_KEY="your_key"
 python src/run_pipeline.py ... --llm-provider gemini
-```
-
-## Interactive Web App
-
-A live demo is available via Streamlit Cloud. Click the badge below to open it in your browser — no installation required.
-
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioimage-qc.streamlit.app/)
-
-The app lets you:
-
-- **Upload** any PNG/TIF fluorescence or brightfield image (or pick from the built-in sample gallery)
-- **Tune** watershed parameters interactively — smoothing σ, min object size, peak distance
-- **See** the raw image, colour-coded segmentation, overlay, and nucleus size histogram side by side
-- **Inspect** rule-based QC flags (blur, contrast, tiny-object fraction)
-- **Watch** the agent detect over/under-segmentation and automatically re-run with corrected parameters
-- **Download** the overlay PNG, predicted mask, and a metrics CSV
-
-To run the app locally:
-
-```bash
-streamlit run streamlit_app.py
-```
-
-For a minimal install (no Cellpose / SAM / torch needed):
-
-```bash
-pip install -r requirements-cloud.txt
-streamlit run streamlit_app.py
 ```
 
 ## Future Extensions
