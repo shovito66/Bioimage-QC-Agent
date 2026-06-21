@@ -10,6 +10,7 @@ Bioimage analysis workflows require reliable segmentation, benchmarking, quality
 
 ## Interactive Web App
 ![Demo](docs/images/dashboard.gif)
+
 A live demo is available via Streamlit Cloud. Click the badge below to open it in your browser — no installation required.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bioimage-qc.streamlit.app/)
